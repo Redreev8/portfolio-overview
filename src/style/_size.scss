@@ -1,5 +1,17 @@
-$container: 1520px;
-
 @function gap($n: 1) {
     @return 4px * $n;
+}
+
+@mixin container {
+    width: 100%;
+    max-width: 1520px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: size.gap(10);
+    padding-left: size.gap(10);
+
+    @include media.tablet {
+        padding-right: size.gap(5);
+        padding-left: size.gap(5);
+    }
 }

@@ -1,0 +1,6 @@
+@use '../../style/size';
+@use '../../style/media';
+
+.box {
+    @include size.container;
+}

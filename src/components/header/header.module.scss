@@ -1,0 +1,9 @@
+@use '../../style/size';
+
+.header
+.container {
+    display: flex;
+    gap: size.gap(5);
+    align-items: center;
+    justify-content: space-between;
+}

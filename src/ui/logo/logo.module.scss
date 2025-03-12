@@ -1,0 +1,10 @@
+@use '../../style/colors';
+@use '../../style/fonts';
+@use '../../style/size';
+
+.logo {
+    @include fonts.big-text;
+    padding: size.gap(2);
+    color: colors.$text;
+    background-color: colors.$action;
+}

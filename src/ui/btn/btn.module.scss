@@ -1,0 +1,40 @@
+@use '../../style/fonts';
+@use '../../style/colors';
+@use '../../style/size';
+
+.btn {
+    @include fonts.family;
+    @include fonts.text;
+
+        transform: rotate(16deg);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 180px;
+    height: 180px;
+    padding: size.gap(2) size.gap(4);
+    border: none;
+    border-radius: 0;
+
+    color: colors;
+    color: color.$text;
+    text-align: center;
+    text-decoration: none;
+
+    background-color: colors.$action;
+
+    transition:  
+        background-color .6s 0s,
+        border-radius .6s 0s;
+
+    &:hover,
+    &:focus {
+        border-radius: 180px;
+    }
+    
+    &:active {
+        background-color: colors.$active;
+    }
+}
