@@ -10,7 +10,9 @@ createRoot(document.getElementById('root')!).render(
     <StrictMode>
         <Provider store={store}>
             <Header />
-            <PortfolioOverview />
+            <main>
+                <PortfolioOverview />
+            </main>
         </Provider>
     </StrictMode>,
 )

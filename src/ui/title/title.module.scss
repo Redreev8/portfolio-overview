@@ -1,0 +1,25 @@
+@use '../../style/fonts';
+
+.h1 {
+    @include fonts.h1;
+}
+
+.h2 {
+    @include fonts.big-text;
+}
+
+.h3 {
+    @include fonts.big-text;
+}
+
+.h4 {
+    @include fonts.big-text;
+}
+
+.h5 {
+    @include fonts.big-text;
+}
+
+.h6 {
+    @include fonts.big-text;
+}

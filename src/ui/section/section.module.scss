@@ -1,0 +1,8 @@
+@use '../../style/size';
+@use '../../style/media';
+
+.box {
+    width: 100%;
+    max-width: 100vw;
+    padding-top: size.gap(5);
+}

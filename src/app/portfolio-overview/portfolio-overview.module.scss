@@ -1,0 +1,5 @@
+@use '../../style/views';
+
+.title {
+    @include views.visible-hidden;
+}
