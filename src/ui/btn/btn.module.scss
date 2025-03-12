@@ -5,6 +5,7 @@
 .btn {
     @include fonts.family;
     @include fonts.big-text;
+    cursor: pointer;
 
     display: flex;
     align-items: center;
@@ -12,7 +13,7 @@
 
     padding: size.gap(2) size.gap(4);
     border: none;
-    border-radius: 0;
+    border-radius: 20px;
 
     color: colors.$text;
     text-align: center;
@@ -21,12 +22,20 @@
     background-color: colors.$action;
 
     transition:  
-        background-color .6s 0s,
-        border-radius .6s 0s;
+        background-color .6s 0s;
+
+    &--circle {
+        aspect-ratio: 1 / 1;
+        min-width: 140px;
+        max-width: 180px;
+        border-radius: 10000px;
+
+        text-align: center;
+    }
 
     &:hover,
     &:focus {
-        border-radius: 180px;
+        background-color: colors.$hover;
     }
     
     &:active {

@@ -8,7 +8,11 @@ const Header = () => {
         <header className={styles.header}>
             <Container className={styles.container}>
                 <Logo />
-                <Btn>Добавить</Btn>
+            </Container>
+            <Container className={styles.wrap}>
+                <Btn className={styles.btn} isCircle>
+                    Добавить
+                </Btn>
             </Container>
         </header>
     )

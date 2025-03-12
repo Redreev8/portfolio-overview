@@ -8,10 +8,20 @@ type HTMLProps = AnchorHTMLAttributes<HTMLAnchorElement> &
 
 export interface BtnProps
     extends Ref<HTMLButtonElement | HTMLAnchorElement>,
-        HTMLProps {}
+        HTMLProps {
+    isCircle?: boolean
+}
 
-const Btn: FC<BtnProps> = ({ className, children, href, ...props }) => {
-    const cl = classNames(className, styles.btn)
+const Btn: FC<BtnProps> = ({
+    className,
+    children,
+    href,
+    isCircle = false,
+    ...props
+}) => {
+    const cl = classNames(className, styles.btn, {
+        [styles['btn--circle']]: isCircle,
+    })
 
     if (href) {
         return (
