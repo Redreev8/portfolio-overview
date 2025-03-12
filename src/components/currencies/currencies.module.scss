@@ -1,0 +1,73 @@
+@use '../../style/fonts';
+@use '../../style/colors';
+@use '../../style/size';
+
+.modal {
+    width: 100%;
+    max-width: 480px;
+
+    &__wrap {
+        display: flex;
+        flex-direction: column;
+        max-height: 100vh;
+    }
+
+    &__content {
+        height: 100%;
+    }
+}
+
+
+.list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+    &__item {
+        padding: 0;
+    }
+
+    &__btn {
+        cursor: pointer;
+
+        display: grid;
+        grid-template-columns: 1fr 80px 1fr;
+        gap: size.gap(3);
+        justify-content: space-between;
+
+        width: 100%;
+        padding: size.gap(1) 0;
+        border: none;
+
+        text-align: left;
+
+        background-color: transparent;
+
+        @include fonts.family;
+        @include fonts.big-text;
+    }
+
+    &__symbol {
+        font-weight: 900;
+    }
+
+    &__percent {
+        justify-self: center;
+
+        &--red {
+            color: colors.$red;
+        }
+
+        &--green {
+            color: colors.$green;
+        }
+    }
+
+    &__price {
+        justify-self: end;
+
+        &::before {
+            content: '$';
+        }
+    }
+}

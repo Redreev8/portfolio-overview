@@ -1,8 +1,14 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import getTickek from '../../api/binance/get-tickek'
 
+export interface Currency {
+    symbol: string
+    priceChangePercent: number
+    lastPrice: number
+}
+
 interface Currencies {
-    currencies: File[]
+    currencies: Currency[]
     loading: 'idle' | 'pending' | 'failed'
 }
 
@@ -15,7 +21,11 @@ export const fetchCurrencies = createAsyncThunk(
     'currencies/fetch',
     async () => {
         const response = await getTickek()
-        return response.data
+        return response.data.filter((el) => {
+            el.priceChangePercent = parseFloat(el.priceChangePercent).toFixed(2)
+            el.lastPrice = parseFloat(el.lastPrice).toFixed(2)
+            return el.lastPrice !== parseFloat('0').toFixed(2)
+        }) as unknown as Currency[]
     },
 )
 
