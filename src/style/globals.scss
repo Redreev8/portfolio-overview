@@ -1,4 +1,4 @@
-@use 'color';
+@use 'colors';
 @use 'fonts';
 @use 'size';
 
@@ -14,12 +14,12 @@ html {
 body {
     min-height: 100vh;
 
-    @include fonts.family;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: color.$text;
 
     background-color: color.$bg;
-
+    
+    @include fonts.family;
     @include fonts.text;
 }

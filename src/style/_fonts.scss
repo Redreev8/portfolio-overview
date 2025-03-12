@@ -1,7 +1,7 @@
 @use 'media';
 
 @mixin family {
-    font-family: var(--font-title);
+    font-family: "Alumni Sans", sans-serif;
 }
 
 @mixin h1 {
