@@ -1,6 +1,8 @@
 @use '../../style/size';
 
-.header
+.header {
+    padding: size.gap(5) 0;
+}
 .container {
     display: flex;
     gap: size.gap(5);
