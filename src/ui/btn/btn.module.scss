@@ -4,22 +4,17 @@
 
 .btn {
     @include fonts.family;
-    @include fonts.text;
-
-        transform: rotate(16deg);
+    @include fonts.big-text;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    width: 180px;
-    height: 180px;
     padding: size.gap(2) size.gap(4);
     border: none;
     border-radius: 0;
 
-    color: colors;
-    color: color.$text;
+    color: colors.$text;
     text-align: center;
     text-decoration: none;
 
