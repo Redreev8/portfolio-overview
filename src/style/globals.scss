@@ -1,0 +1,25 @@
+@use 'color';
+@use 'fonts';
+@use 'size';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    @include fonts.family;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: color.$text;
+
+    background-color: color.$bg;
+
+    @include fonts.text;
+}
