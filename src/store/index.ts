@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { useDispatch, useSelector } from 'react-redux'
 import CurrenciesSlice from './currencies'
+import AssetsSlice from './assets'
 
 const store = configureStore({
     reducer: {
         [CurrenciesSlice.name]: CurrenciesSlice.reducer,
+        [AssetsSlice.name]: AssetsSlice.reducer,
     },
 })
 
