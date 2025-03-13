@@ -7,10 +7,8 @@ const socket = <T>(
             return `${el.toLocaleLowerCase()}@ticker`
         }, '')
         .join('/')
-    console.log(targets)
     const url = `wss://stream.binance.com:9443/stream?streams=${targets}`
     const socket = new WebSocket(url)
-    console.log(targets)
     socket.onopen = () => {
         console.log('connect')
     }
