@@ -1,0 +1,9 @@
+@use '../../style/colors';
+@use '../../style/fonts';
+@use '../../style/size';
+
+.error {
+    @include fonts.big-text;
+    color: colors.$bg;
+    background-color: colors.$red;
+}

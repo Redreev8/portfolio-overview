@@ -122,4 +122,8 @@
     &__input {
         grid-column: 2 span;
     }
+    &__error {
+        grid-column: 2 span;
+        justify-self: self-start;
+    }
 }
