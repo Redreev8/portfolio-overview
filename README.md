@@ -12,6 +12,7 @@
 - axios
 - classnames
 - WebSocket
+- recharts
 
 ## Instructions for launching
 
