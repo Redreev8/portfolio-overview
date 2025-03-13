@@ -10,6 +10,7 @@ const idTitle = 'Portfolio-Overview'
 
 const PortfolioOverview = () => {
     const loading = useAppSelector((store) => store.currencies.loading)
+    const list = useAppSelector((store) => store.assets.list)
     return (
         <>
             <Loading
@@ -21,7 +22,17 @@ const PortfolioOverview = () => {
                     <Title className={styles.title} id={idTitle}>
                         Portfolio Overview
                     </Title>
-                    {loading === 'idle' && <GridAssets />}
+                    {loading === 'idle' &&
+                        (Object.keys(list).length === 0 ? (
+                            <Title
+                                className={styles['title-no-assets']}
+                                as="h3"
+                            >
+                                Нет активов
+                            </Title>
+                        ) : (
+                            <GridAssets />
+                        ))}
                 </Container>
             </Section>
         </>
