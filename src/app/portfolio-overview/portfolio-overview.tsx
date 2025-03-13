@@ -2,9 +2,7 @@ import styles from './portfolio-overview.module.scss'
 import Container from '../../ui/container'
 import Section from '../../ui/section'
 import Title from '../../ui/title'
-import { useAppDispatch, useAppSelector } from '../../store'
-import { useLayoutEffect } from 'react'
-import { fetchCurrencies } from '../../store/currencies/currencies.slice'
+import { useAppSelector } from '../../store'
 import GridAssets from '../../components/assets/grid-assets'
 import Loading from '../../ui/loading'
 
@@ -12,10 +10,6 @@ const idTitle = 'Portfolio-Overview'
 
 const PortfolioOverview = () => {
     const loading = useAppSelector((store) => store.currencies.loading)
-    const dispatch = useAppDispatch()
-    useLayoutEffect(() => {
-        dispatch(fetchCurrencies())
-    }, [])
     return (
         <>
             <Loading
