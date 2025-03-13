@@ -1,6 +1,7 @@
 @use '../../style/fonts';
 @use '../../style/colors';
 @use '../../style/size';
+@use '../../style/media';
 
 .grid {
     display: grid;
@@ -13,6 +14,13 @@
     padding-right: size.gap(4);
 
     list-style-type: none;
+
+    @include media.tablet {
+        grid-template-columns: 1fr 1fr;
+    }
+    @include media.phablet {
+        grid-template-columns: 1fr;
+    }
 
     &__item {
         padding: 0;

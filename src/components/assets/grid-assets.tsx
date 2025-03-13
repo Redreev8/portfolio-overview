@@ -8,10 +8,15 @@ const GridAssets: FC = () => {
     const { list, count } = useAppSelector((store) => store.assets)
     const [keys, setKeys] = useState<string[]>([])
     const ref = useRef<HTMLUListElement>(null)
+    const columns = {
+        960: 3,
+        720: 2,
+        360: 1,
+    }
     const { getTopHeight, getBottomHeight, virtualArr } = useVirtualList<
         HTMLUListElement,
         string
-    >({ initial: keys, ref, heightRow: 200, columns: 3 })
+    >({ initial: keys, ref, heightRow: 200, columns })
     useEffect(() => {
         setKeys(Object.keys(list))
     }, [list])

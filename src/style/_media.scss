@@ -17,7 +17,7 @@
 }
 
 @mixin phablet {
-    @media (width <= 560px) {
+    @media (width <= 720px) {
         @content;
     }
 }
