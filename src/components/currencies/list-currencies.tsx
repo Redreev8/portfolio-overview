@@ -42,7 +42,7 @@ const ListCurrencies = () => {
     const { getTopHeight, getBottomHeight, virtualArr } = useVirtualList<
         HTMLUListElement,
         Currency
-    >({ arr: currencies, ref, heightRow: 40 })
+    >({ initial: currencies, ref, heightRow: 40 })
     return (
         <ul
             style={{

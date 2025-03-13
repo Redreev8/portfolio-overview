@@ -35,10 +35,7 @@ const useVirtualList = <T extends HTMLElement, A>({
         const parentHeight = parentRef.current.offsetHeight
         parentRef.current.addEventListener('scroll', handelScroll)
         setVisibleRows(Math.ceil(parentHeight / heightRow) + 2)
-        return () => {
-            setVisibleRows(0)
-        }
-    }, [])
+    }, [initial])
 
     const getTopHeight = () => {
         return heightRow * (position / columns)

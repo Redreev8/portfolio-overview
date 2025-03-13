@@ -98,6 +98,10 @@
 
         &--green {
             color: colors.$green;
+
+            &::before {
+                content: '+';
+            }
         }
     }
 
@@ -122,6 +126,7 @@
     &__input {
         grid-column: 2 span;
     }
+
     &__error {
         grid-column: 2 span;
         justify-self: self-start;

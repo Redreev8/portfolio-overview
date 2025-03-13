@@ -23,3 +23,9 @@ body {
     @include fonts.family;
     @include fonts.text;
 }
+
+#root {
+    display: grid;
+    grid-template-rows: min-content 1fr 200px;
+    min-height: 100vh;
+}
