@@ -24,7 +24,8 @@ const useVirtualList = <T extends HTMLElement, A>({
         setPosition(
             Math.min(
                 Math.ceil(
-                    initial.length - visibleRows * (numberColumns - 2) * numberColumns,
+                    initial.length -
+                        visibleRows * (numberColumns - 2) * numberColumns,
                 ),
                 active < 0 ? 0 : active,
             ),
@@ -60,7 +61,8 @@ const useVirtualList = <T extends HTMLElement, A>({
 
     const getBottomHeight = () => {
         const rowsNotVisible =
-            initial.length / numberColumns - (position / numberColumns + heightRow)
+            initial.length / numberColumns -
+            (position / numberColumns + heightRow)
         return rowsNotVisible * heightRow
     }
 

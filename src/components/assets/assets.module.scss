@@ -18,6 +18,7 @@
     @include media.tablet {
         grid-template-columns: 1fr 1fr;
     }
+
     @include media.phablet {
         grid-template-columns: 1fr;
     }
