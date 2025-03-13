@@ -15,7 +15,7 @@
 
 ## Instructions for launching
 
-1. ```npm i`` скачать зависимости
+1. ```npm i``` скачать зависимости
 2. ```npm run build``` собрать проект
 3. ```npm run preview``` запустить проект
 
