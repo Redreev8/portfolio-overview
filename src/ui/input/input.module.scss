@@ -16,7 +16,7 @@
 
     &:hover,
     &:focus {
-        outline: none;
         border-color: colors.$action;
+        outline: none;
     }
 }

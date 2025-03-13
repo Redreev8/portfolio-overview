@@ -5,11 +5,11 @@
 }
 
 .h2 {
-    @include fonts.big-text;
+    @include fonts.h2;
 }
 
 .h3 {
-    @include fonts.big-text;
+    @include fonts.h3;
 }
 
 .h4 {
