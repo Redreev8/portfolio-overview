@@ -1,12 +1,15 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 export interface assets {
-    [key: string]: number
+    list: { [key: string]: number }
+    count: number
 }
 
 const localStor = localStorage.getItem('assets')
 
-const initialState: assets = localStor ? JSON.parse(localStor) : {}
+const initialState: assets = localStor
+    ? JSON.parse(localStor)
+    : { list: {}, count: 0 }
 
 const AssetsSlice = createSlice({
     name: 'assets',
@@ -16,12 +19,15 @@ const AssetsSlice = createSlice({
             state,
             { payload }: PayloadAction<{ [key: string]: number }>,
         ) => {
-            state = { ...state, ...payload }
+            state.list = { ...state.list, ...payload }
+            const key = Object.keys(payload)[0]
+            state.count += payload[key]
             localStorage.setItem('assets', JSON.stringify(state))
             return state
         },
         removeAsset: (state, { payload }: PayloadAction<string>) => {
-            delete state[payload]
+            state.count -= state.list[payload]
+            delete state.list[payload]
             localStorage.setItem('assets', JSON.stringify(state))
             return state
         },
