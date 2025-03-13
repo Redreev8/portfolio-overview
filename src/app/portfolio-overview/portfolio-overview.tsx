@@ -3,7 +3,7 @@ import Container from '../../ui/container'
 import Section from '../../ui/section'
 import Title from '../../ui/title'
 import { useAppSelector } from '../../store'
-import GridAssets from '../../components/assets/grid-assets'
+import GridAssets from '../../components/assets/'
 import Loading from '../../ui/loading'
 
 const idTitle = 'Portfolio-Overview'
