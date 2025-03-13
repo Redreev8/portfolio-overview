@@ -1,14 +1,14 @@
 import { RefObject, useEffect, useLayoutEffect, useRef, useState } from 'react'
 
 interface useVirtualListProps<T extends HTMLElement, A> {
-    arr: Array<A>
+    initial: Array<A>
     ref: RefObject<T | null>
     heightRow: number
     columns?: number
 }
 
 const useVirtualList = <T extends HTMLElement, A>({
-    arr = [],
+    initial = [],
     ref,
     columns = 1,
     heightRow,
@@ -22,7 +22,9 @@ const useVirtualList = <T extends HTMLElement, A>({
             Math.floor(parentRef.current!.scrollTop / heightRow) * columns
         setPosition(
             Math.min(
-                Math.ceil(arr.length - visibleRows * (columns - 2) * columns),
+                Math.ceil(
+                    initial.length - visibleRows * (columns - 2) * columns,
+                ),
                 active < 0 ? 0 : active,
             ),
         )
@@ -33,7 +35,6 @@ const useVirtualList = <T extends HTMLElement, A>({
         const parentHeight = parentRef.current.offsetHeight
         parentRef.current.addEventListener('scroll', handelScroll)
         setVisibleRows(Math.ceil(parentHeight / heightRow) + 2)
-
         return () => {
             setVisibleRows(0)
         }
@@ -45,13 +46,15 @@ const useVirtualList = <T extends HTMLElement, A>({
 
     const getBottomHeight = () => {
         const rowsNotVisible =
-            arr.length / columns - (position / columns + heightRow)
+            initial.length / columns - (position / columns + heightRow)
         return rowsNotVisible * heightRow
     }
 
     useEffect(() => {
-        setVirtualArr(arr.slice(position, position + visibleRows * columns))
-    }, [position, visibleRows])
+        setVirtualArr(() =>
+            initial.slice(position, position + visibleRows * columns),
+        )
+    }, [position, visibleRows, initial])
 
     return {
         getTopHeight,
