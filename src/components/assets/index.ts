@@ -1,5 +1,5 @@
-import ModalCurrencies from './modal-currencies'
-export { default as ListCurrencies } from './list-currencies'
-export { default as stylesCurrencies } from './currencies.module.scss'
+import GridAssets from './grid-assets'
+export { default as CardAssets } from './card-assets'
+export { default as stylesAssets } from './assets.module.scss'
 
-export default ModalCurrencies
+export default GridAssets
