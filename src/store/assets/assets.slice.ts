@@ -20,10 +20,13 @@ const AssetsSlice = createSlice({
             state,
             { payload }: PayloadAction<{ [key: string]: number }>,
         ) => {
+            console.log(payload)
             state = { ...state, ...payload }
+            return state
         },
         removeAsset: (state, { payload }: PayloadAction<string>) => {
             delete state[payload]
+            return state
         },
     },
 })
