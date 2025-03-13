@@ -39,9 +39,6 @@ const useVirtualList = <T extends HTMLElement, A>({
             setNumberColumns(columns[+w])
         }
     }
-    useEffect(() => {
-        console.log(numberColumns)
-    }, [numberColumns])
     useLayoutEffect(() => {
         if (!ref.current) return
         parentRef.current = ref.current.parentElement as HTMLElement
