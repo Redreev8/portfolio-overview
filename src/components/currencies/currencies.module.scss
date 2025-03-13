@@ -3,17 +3,55 @@
 @use '../../style/size';
 
 .modal {
+    pointer-events: none;
+
+    box-sizing: border-box;
     width: 100%;
     max-width: 480px;
+    height: 100vh;
+    padding: size.gap(5) 0;
 
     &__wrap {
+        pointer-events: all;    
+
         display: flex;
         flex-direction: column;
-        max-height: 100vh;
+
+        box-sizing: border-box;
+        height: 100%;
+
+        transition: height .6s 0s;
+
+        &--hidden {
+            overflow: hidden;
+            height: 0;
+        }
+    }
+
+    &__form {
+        pointer-events: none;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        box-sizing: border-box;
+        height: 100%;
+
+        transition: height .6s 0s;
+
+        &--hidden {
+            overflow: hidden;
+            height: 0;
+        }
     }
 
     &__content {
         height: 100%;
+
+        &--form {
+            pointer-events: all;
+        }
     }
 }
 
@@ -69,5 +107,19 @@
         &::before {
             content: '$';
         }
+    }
+}
+
+.form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: size.gap(5);
+
+    &__title {
+        grid-column: 2 span;
+    }
+
+    &__input {
+        grid-column: 2 span;
     }
 }

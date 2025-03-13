@@ -1,22 +1,30 @@
 import { FC, useRef } from 'react'
 import useVirtualList from '../../hooks/useVirtualList'
-import { useAppSelector } from '../../store'
+import { useAppDispatch, useAppSelector } from '../../store'
 import styles from './currencies.module.scss'
 import classNames from 'classnames'
 import { Currency } from '../../store/currencies/currencies.slice'
+import { changeActive } from '../../store/currencies'
 
 export const ItemCurrencies: FC<Currency> = ({
     symbol,
     priceChangePercent,
     lastPrice,
 }) => {
+    const dispatch = useAppDispatch()
     const clPercent = classNames(styles['list__percent'], {
         [styles['list__percent--red']]: priceChangePercent < 0,
         [styles['list__percent--green']]: priceChangePercent > 0,
     })
+
+    const handelClick = () => {
+        dispatch(changeActive(symbol))
+    }
+
     return (
         <li className={styles['list__item']}>
             <button
+                onClick={handelClick}
                 className={styles['list__btn']}
                 aria-label={`Добавить актив ${symbol}`}
             >

@@ -1,0 +1,21 @@
+@use '../../style/colors';
+@use '../../style/fonts';
+@use '../../style/size';
+
+.input {
+    @include fonts.big-text;
+    padding: size.gap(2) size.gap(4);
+    border: 2px solid colors.$text;
+    border-radius: 8px;
+
+    color: colors.$text;
+
+    background-color: transparent;
+
+    transition: border-color .6s 0s;
+
+    &:hover,
+    &:focus {
+        border-color: colors.$action;
+    }
+}

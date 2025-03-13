@@ -4,11 +4,17 @@ import Btn from '../../ui/btn'
 import Container from '../../ui/container'
 import Logo from '../../ui/logo'
 import ModalCurrencies from '../currencies/modal-currencies'
+import { useAppDispatch } from '../../store'
+import { changeActive } from '../../store/currencies'
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
+    const dispatch = useAppDispatch()
     const openModal = () => setIsOpen(true)
-    const closeModal = () => setIsOpen(false)
+    const closeModal = () => {
+        dispatch(changeActive(null))
+        setIsOpen(false)
+    }
     return (
         <header className={styles.header}>
             <Container className={styles.container}>

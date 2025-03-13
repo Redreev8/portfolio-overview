@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import getTickek from '../../api/binance/get-tickek'
 
 export interface Currency {
@@ -9,11 +9,15 @@ export interface Currency {
 
 interface Currencies {
     currencies: Currency[]
+    keys: { [key: string]: number }
+    activeKey: keyof Currencies['keys'] | null
     loading: 'idle' | 'pending' | 'failed'
 }
 
 const initialState: Currencies = {
     currencies: [],
+    keys: {},
+    activeKey: null,
     loading: 'idle',
 }
 
@@ -32,11 +36,25 @@ export const fetchCurrencies = createAsyncThunk(
 const CurrenciesSlice = createSlice({
     name: 'currencies',
     initialState,
-    reducers: {},
+    reducers: {
+        changeActive: (
+            state,
+            { payload }: PayloadAction<keyof Currencies['keys'] | null>,
+        ) => {
+            state.activeKey = payload
+        },
+    },
     extraReducers: (builder) => {
         builder.addCase(fetchCurrencies.fulfilled, (state, action) => {
             state.loading = 'idle'
             state.currencies = action.payload
+            state.keys = action.payload.reduce(
+                (obj, el, i) => {
+                    obj[el.symbol] = i
+                    return obj
+                },
+                {} as Currencies['keys'],
+            )
         })
         builder.addCase(fetchCurrencies.rejected, (state) => {
             state.loading = 'failed'

@@ -26,12 +26,6 @@ const useVirtualList = <T extends HTMLElement, A>({
                 active < 0 ? 0 : active,
             ),
         )
-        console.log(
-            Math.min(
-                Math.ceil(arr.length - visibleRows * (columns - 2) * columns),
-                active < 0 ? 0 : active,
-            ),
-        )
     }
     useLayoutEffect(() => {
         if (!ref.current) return
@@ -39,7 +33,7 @@ const useVirtualList = <T extends HTMLElement, A>({
         const parentHeight = parentRef.current.offsetHeight
         parentRef.current.addEventListener('scroll', handelScroll)
         setVisibleRows(Math.ceil(parentHeight / heightRow) + 2)
-        console.log(position)
+
         return () => {
             setVisibleRows(0)
         }
