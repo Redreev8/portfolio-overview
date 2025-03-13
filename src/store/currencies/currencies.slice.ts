@@ -7,7 +7,7 @@ export interface Currency {
     lastPrice: number
 }
 
-interface Currencies {
+export interface Currencies {
     currencies: Currency[]
     keys: { [key: string]: number }
     activeKey: keyof Currencies['keys'] | null

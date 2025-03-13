@@ -1,16 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-export interface Currency {
-    symbol: string
-    priceChangePercent: number
-    lastPrice: number
-}
-
-interface assets {
+export interface assets {
     [key: string]: number
 }
 
-const initialState: assets = {}
+const localStor = localStorage.getItem('assets')
+
+const initialState: assets = localStor ? JSON.parse(localStor) : {}
 
 const AssetsSlice = createSlice({
     name: 'assets',
@@ -21,10 +17,12 @@ const AssetsSlice = createSlice({
             { payload }: PayloadAction<{ [key: string]: number }>,
         ) => {
             state = { ...state, ...payload }
+            localStorage.setItem('assets', JSON.stringify(state))
             return state
         },
         removeAsset: (state, { payload }: PayloadAction<string>) => {
             delete state[payload]
+            localStorage.setItem('assets', JSON.stringify(state))
             return state
         },
     },
