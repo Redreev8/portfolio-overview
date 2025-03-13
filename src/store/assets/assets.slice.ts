@@ -20,7 +20,6 @@ const AssetsSlice = createSlice({
             state,
             { payload }: PayloadAction<{ [key: string]: number }>,
         ) => {
-            console.log(payload)
             state = { ...state, ...payload }
             return state
         },
