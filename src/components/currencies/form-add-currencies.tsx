@@ -16,7 +16,6 @@ export const FormAddCurrencies: FC<FormAddCurrenciesProps> = ({
         (store) => store.currencies,
     )
     if (!activeKey) return
-    console.log(styles)
     return (
         <form className={styles.form}>
             <Title className={styles['form__title']} as={'h3'}>
