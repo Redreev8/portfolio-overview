@@ -1,0 +1,19 @@
+@use '../../style/fonts';
+@use '../../style/colors';
+@use '../../style/size';
+
+.modal {
+    pointer-events: none;
+
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 480px;
+    height: 100vh;
+    padding: size.gap(5) 0;
+
+    &__content {
+        pointer-events: all;
+        max-width: 600px;
+        height: 540px;
+    }
+}

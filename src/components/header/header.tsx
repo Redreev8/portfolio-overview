@@ -6,14 +6,20 @@ import Logo from '../../ui/logo'
 import ModalCurrencies from '../currencies/modal-currencies'
 import { useAppDispatch } from '../../store'
 import { changeActive } from '../../store/currencies'
+import ModalChart from '../chart'
 
 const Header = () => {
-    const [isOpen, setIsOpen] = useState<boolean>(false)
+    const [isOpenList, setIsOpenList] = useState<boolean>(false)
+    const [isOpenChart, setIsOpenChart] = useState<boolean>(false)
     const dispatch = useAppDispatch()
-    const openModal = () => setIsOpen(true)
-    const closeModal = () => {
+    const openModalListActive = () => setIsOpenList(true)
+    const closeModalListActive = () => {
         dispatch(changeActive(null))
-        setIsOpen(false)
+        setIsOpenList(false)
+    }
+    const openModalChart = () => setIsOpenChart(true)
+    const closeModalChart = () => {
+        setIsOpenChart(false)
     }
     return (
         <header className={styles.header}>
@@ -21,11 +27,24 @@ const Header = () => {
                 <Logo />
             </Container>
             <Container className={styles.wrap}>
-                <Btn onClick={openModal} className={styles.btn} isCircle>
-                    Добавить актив
-                </Btn>
+                <nav className={styles.nav}>
+                    <Btn onClick={openModalChart} className={styles.btn}>
+                        Посметреть график
+                    </Btn>
+                    <Btn
+                        onClick={openModalListActive}
+                        className={styles.btn}
+                        isCircle
+                    >
+                        Добавить актив
+                    </Btn>
+                </nav>
             </Container>
-            <ModalCurrencies isOpen={isOpen} closeModal={closeModal} />
+            <ModalCurrencies
+                isOpen={isOpenList}
+                closeModal={closeModalListActive}
+            />
+            <ModalChart isOpen={isOpenChart} closeModal={closeModalChart} />
         </header>
     )
 }

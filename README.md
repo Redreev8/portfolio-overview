@@ -79,3 +79,7 @@ export default tseslint.config({
     }
   }
 ```
+
+github: https://github.com/Redreev8/portfolio-overview
+demo: https://portfolio-overview-three.vercel.app/
+stack: react, vite, ts, redux/toolkit, sass, @reduxjs/toolkit, axios, classnames, WebSocket
