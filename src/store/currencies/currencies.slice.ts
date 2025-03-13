@@ -43,6 +43,21 @@ const CurrenciesSlice = createSlice({
         ) => {
             state.activeKey = payload
         },
+        changeCurrencies: (
+            state,
+            {
+                payload,
+            }: PayloadAction<{
+                currency: Omit<Currency, 'symbol'>
+                i: number
+            }>,
+        ) => {
+            if (!state.currencies[payload.i]) return
+            state.currencies[payload.i].priceChangePercent =
+                payload.currency.priceChangePercent
+            state.currencies[payload.i].lastPrice = payload.currency.lastPrice
+            return state
+        },
     },
     extraReducers: (builder) => {
         builder.addCase(fetchCurrencies.fulfilled, (state, action) => {
